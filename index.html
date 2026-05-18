@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -199,6 +219,7 @@ window.Quarto = {
     text-align: justify;
   }
 </style>
+<p><span class="citation" data-cites="agricolae ggplot2 tidyverse readxl">(<a href="#ref-agricolae" role="doc-biblioref">Mendiburu 2023</a>; <a href="#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>; <a href="#ref-tidyverse" role="doc-biblioref">Wickham et&nbsp;al. 2019</a>; <a href="#ref-readxl" role="doc-biblioref">Wickham y Bryan 2025</a>)</span></p>
 <section id="paquetes" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> .Paquetes</h1>
 <div class="cell" data-layout-align="center">
@@ -1577,10 +1598,24 @@ W = 0.83909, p-value = 0.04303</code></pre>
 <p><strong>Interpretación:</strong>se determina que la diferencia de las proporciones muestrales de efectividad es de <span class="math inline">0.13</span> (<span class="math inline">13\%</span>). Esto demuestra de manera directa que la proporción de trámites exitosos en la plataforma virtual (<span class="math inline">\hat{p}_1 = 0.75</span>) es mayor que en la modalidad presencial (<span class="math inline">\hat{p}_2 = 0.62</span>), lo que inicialmente señala una ventaja operativa a favor de la digitalización de los servicios del Ministerio.El error estándar de la diferencia para la prueba de hipótesis, calculado a través de la proporción combinada (<span class="math inline">\bar{p} = 0.6778</span>), se establece en <span class="math inline">0.0577</span>. Con este valor, el estadístico de prueba <span class="math inline">Z</span> calculado resulta en <span class="math inline">2.25</span>. Al contrastar este resultado con el valor del <span class="math inline">Z</span> crítico de una sola cola (<span class="math inline">1.64</span>), observamos que el valor de la muestra supera el límite de frontera, ubicándose claramente dentro de la región de rechazo de la cola derecha (área pintada de lavender). Esto se complementa de forma consistente con el intervalo de confianza bilateral del 95% para la diferencia real de proporciones, el cual se sitúa entre <span class="math inline">[0.0185, \, 0.2415]</span>. Dado que este intervalo está compuesto enteramente por valores positivos y no incluye el valor cero (<span class="math inline">0</span>), se confirma que la ventaja de la plataforma virtual es estadísticamente significativa.</p>
 <p>Decisión: Se rechaza la Hipótesis Nula (<span class="math inline">H_0</span>).</p>
 <p>Conclusión: Existe evidencia estadística contundente para afirmar que el nuevo Sistema Virtual de Gestión de Subsidios posee una proporción de trámites exitosos en el primer intento significativamente mayor que la ventanilla tradicional presencial. Con un 95% de seguridad, la plataforma web incrementa la tasa de éxito entre un <span class="math inline">1.85\%</span> y un <span class="math inline">24.15\%</span> en la población de usuarios. Desde la perspectiva del control de gestión, la modernización tecnológica cumple con las metas institucionales de optimización del servicio, lo que justifica técnicamente la reasignación presupuestaria hacia la digitalización integral, garantizando un proceso que reduce los reworks (reprocesos por errores) y eleva la eficiencia del aparato estatal ante la ciudadanía.</p>
+
 </section>
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-agricolae" class="csl-entry" role="listitem">
+Mendiburu, Felipe de. 2023. <span>«agricolae: Statistical Procedures for Agricultural Research»</span>. <a href="https://doi.org/10.32614/CRAN.package.agricolae">https://doi.org/10.32614/CRAN.package.agricolae</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <span>«ggplot2: Elegant Graphics for Data Analysis»</span>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et&nbsp;al. 2019. <span>«Welcome to the <span></span>tidyverse<span></span>»</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-readxl" class="csl-entry" role="listitem">
+Wickham, Hadley, y Jennifer Bryan. 2025. <span>«readxl: Read Excel Files»</span>. <a href="https://doi.org/10.32614/CRAN.package.readxl">https://doi.org/10.32614/CRAN.package.readxl</a>.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -41,6 +41,7 @@ knitr:
     fig.width: 6  # Ajusta el tamaño de las figuras a 6 unidades
     fig.height: 6  # Ajusta la altura de las figuras a 6 unidades
     out.width: "70%"  # Asegura que las figuras se adapten al 70% del ancho disponible
+bibliography: references.bib
 ---
 
 ```{=html}
@@ -57,6 +58,8 @@ knitr:
   }
 </style>
 ```
+
+[@agricolae; @ggplot2; @tidyverse; @readxl]
 
 # .Paquetes
 
@@ -1077,21 +1080,16 @@ Conclusión: Existe evidencia estadística suficiente para afirmar que las varia
 
 ![](images/dp2.png)
 
-La Dirección de Atención Ciudadana de un Ministerio de Vivienda evalúa el impacto de la digitalización de los trámites de subsidio habitacional en la satisfacción del usuario. Se desea comparar la proporción de solicitudes que se resuelven de manera exitosa y sin errores en el primer intento bajo dos modalidades de atención. 
+La Dirección de Atención Ciudadana de un Ministerio de Vivienda evalúa el impacto de la digitalización de los trámites de subsidio habitacional en la satisfacción del usuario. Se desea comparar la proporción de solicitudes que se resuelven de manera exitosa y sin errores en el primer intento bajo dos modalidades de atención.
 
-En la Modalidad A (Plataforma Virtual Nueva), se tomó una muestra aleatoria de expedientes, mientras que en la Modalidad B (Ventanilla Presencial Tradicional) se tomó una muestra independiente. 
+En la Modalidad A (Plataforma Virtual Nueva), se tomó una muestra aleatoria de expedientes, mientras que en la Modalidad B (Ventanilla Presencial Tradicional) se tomó una muestra independiente.
 
 El Director General desea verificar si la proporción de trámites exitosos en la Plataforma Virtual (proporción 1) es significativamente mayor que en la Ventanilla Presencial (proporción 2) para justificar la migración total de los servicios públicos al entorno web. Los datos recopilados en mayo de 2026 reportan:Modalidad A (Virtual): $n_1 = 120$ trámites revisados, de los cuales $x_1 = 90$ fueron exitosos en el primer intento.Modalidad B (Presencial): $n_2 = 150$ trámites revisados, de los cuales $x_2 = 93$ fueron exitosos en el primer intento.Pruebe la hipótesis con un nivel de significancia del 5% ($\alpha = 0.05$).
 
-$$H_0: p_1 - p_2 \leq 0 \quad \text{(La proporción de éxito virtual no es mayor que la presencial)}$$
-$$H_1: p_1 - p_2 > 0 \quad \text{(La proporción de éxito virtual es mayor que la presencial)}$$
-Las estimaciones de las proporciones muestrales son $\hat{p}_1 = \frac{x_1}{n_1}$ y $\hat{p}_2 = \frac{x_2}{n_2}$. 
-Para el estadístico de prueba, calculamos la proporción combinada ($\bar{p}$)
+$$H_0: p_1 - p_2 \leq 0 \quad \text{(La proporción de éxito virtual no es mayor que la presencial)}$$ $$H_1: p_1 - p_2 > 0 \quad \text{(La proporción de éxito virtual es mayor que la presencial)}$$ Las estimaciones de las proporciones muestrales son $\hat{p}_1 = \frac{x_1}{n_1}$ y $\hat{p}_2 = \frac{x_2}{n_2}$. Para el estadístico de prueba, calculamos la proporción combinada ($\bar{p}$)
 
-$$\bar{p} = \frac{x_1 + x_2}{n_1 + n_2}$$
-$$\text{Error Estándar (Prueba)} = \sqrt{\bar{p}(1-\bar{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}$$
-Para el intervalo de confianza bilateral de referencia, el error estándar se calcula con las proporciones individuales:
-$$\text{Error Estándar (IC)} = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$
+$$\bar{p} = \frac{x_1 + x_2}{n_1 + n_2}$$ $$\text{Error Estándar (Prueba)} = \sqrt{\bar{p}(1-\bar{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}$$ Para el intervalo de confianza bilateral de referencia, el error estándar se calcula con las proporciones individuales: $$\text{Error Estándar (IC)} = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$
+
 ```{r}
 
 # 1. Datos del problema administrativo de atención ciudadana
@@ -1171,9 +1169,9 @@ text(z_calculado - 0.7, max(y_valores) * 0.3, paste("Z calc =\n", round(z_calcul
 # Anotación de significancia en la cola de rechazo (Texto negro)
 text(z_critico_prueba + 1.2, max(y_valores) * 0.05, expression(paste(alpha, " = 5%")), col = "black", cex = 0.8)
 ```
+
 **Interpretación:**se determina que la diferencia de las proporciones muestrales de efectividad es de $0.13$ ($13\%$). Esto demuestra de manera directa que la proporción de trámites exitosos en la plataforma virtual ($\hat{p}_1 = 0.75$) es mayor que en la modalidad presencial ($\hat{p}_2 = 0.62$), lo que inicialmente señala una ventaja operativa a favor de la digitalización de los servicios del Ministerio.El error estándar de la diferencia para la prueba de hipótesis, calculado a través de la proporción combinada ($\bar{p} = 0.6778$), se establece en $0.0577$. Con este valor, el estadístico de prueba $Z$ calculado resulta en $2.25$. Al contrastar este resultado con el valor del $Z$ crítico de una sola cola ($1.64$), observamos que el valor de la muestra supera el límite de frontera, ubicándose claramente dentro de la región de rechazo de la cola derecha (área pintada de lavender). Esto se complementa de forma consistente con el intervalo de confianza bilateral del 95% para la diferencia real de proporciones, el cual se sitúa entre $[0.0185, \, 0.2415]$. Dado que este intervalo está compuesto enteramente por valores positivos y no incluye el valor cero ($0$), se confirma que la ventaja de la plataforma virtual es estadísticamente significativa.
 
 Decisión: Se rechaza la Hipótesis Nula ($H_0$).
 
 Conclusión: Existe evidencia estadística contundente para afirmar que el nuevo Sistema Virtual de Gestión de Subsidios posee una proporción de trámites exitosos en el primer intento significativamente mayor que la ventanilla tradicional presencial. Con un 95% de seguridad, la plataforma web incrementa la tasa de éxito entre un $1.85\%$ y un $24.15\%$ en la población de usuarios. Desde la perspectiva del control de gestión, la modernización tecnológica cumple con las metas institucionales de optimización del servicio, lo que justifica técnicamente la reasignación presupuestaria hacia la digitalización integral, garantizando un proceso que reduce los reworks (reprocesos por errores) y eleva la eficiencia del aparato estatal ante la ciudadanía.
-
